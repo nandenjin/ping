@@ -47,8 +47,8 @@ module.exports = {
 
   plugins: [
 
-    new HTMLWebpackPlugin( { template: './index.html' } )
-    new CopyWebpackPlugin( { from: './sounds', to './sounds' } )
+    new HTMLWebpackPlugin( { template: './index.html' } ),
+    new CopyWebpackPlugin( [ { from: './sounds', to: './sounds' } ] )
 
   ],
 
