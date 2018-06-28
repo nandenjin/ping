@@ -2,6 +2,7 @@
 const path = require( 'path' );
 
 const HTMLWebpackPlugin = require( 'html-webpack-plugin' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 
 module.exports = {
 
@@ -46,11 +47,8 @@ module.exports = {
 
   plugins: [
 
-    new HTMLWebpackPlugin( {
-
-      template: './index.html'
-
-    } )
+    new HTMLWebpackPlugin( { template: './index.html' } )
+    new CopyWebpackPlugin( { from: './sounds', to './sounds' } )
 
   ],
 
