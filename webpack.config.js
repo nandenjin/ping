@@ -76,7 +76,7 @@ module.exports = {
 
   plugins: [
 
-    new HTMLWebpackPlugin( { template: './index.html' } ),
+    new HTMLWebpackPlugin( { template: './index.html', inject: false, } ),
     new CopyWebpackPlugin( [ { from: './sounds', to: './sounds' } ] ),
     new VueLoaderPlugin(),
 
