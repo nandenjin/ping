@@ -3,6 +3,7 @@ const path = require( 'path' );
 
 const HTMLWebpackPlugin = require( 'html-webpack-plugin' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
+const VueLoaderPlugin = require( 'vue-loader/lib/plugin' );
 
 module.exports = {
 
@@ -33,11 +34,18 @@ module.exports = {
         test: /\.scss$/,
         use: [
 
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' },
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader',
 
         ],
+
+      },
+
+      {
+
+        test: /\.vue$/,
+        use: 'vue-loader',
 
       }
 
@@ -58,7 +66,8 @@ module.exports = {
   plugins: [
 
     new HTMLWebpackPlugin( { template: './index.html' } ),
-    new CopyWebpackPlugin( [ { from: './sounds', to: './sounds' } ] )
+    new CopyWebpackPlugin( [ { from: './sounds', to: './sounds' } ] ),
+    new VueLoaderPlugin(),
 
   ],
 
