@@ -15,7 +15,7 @@
 
   import Page from './Page.vue';
 
-  const context = new ( AudioContext || webkitAudioContext )();
+  const context = window.AudioContext ? new AudioContext() : new webkitAudioContext();
   const dest = context.destination;
 
   context.suspend();
