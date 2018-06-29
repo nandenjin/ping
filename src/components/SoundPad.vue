@@ -49,7 +49,7 @@
 
         } ).then( arrayBuffer => {
 
-          return this.context.decodeAudioData( arrayBuffer );
+          return new Promise( ( done, err ) => this.context.decodeAudioData( arrayBuffer, r => done( r ), e => err( e ) ) );
 
         } ).then( buffer => {
 
