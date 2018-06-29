@@ -3,7 +3,7 @@
   
   <div>
     
-    <sound-pad v-for="( pad, i ) in config.pads" :config="pad" :context="context" :dest="dest" :key="i"/>
+    <sound-pad v-for="( pad, i ) in config.pads" :config="pad" :dest="dest" :key="i"/>
 
   </div>
 
@@ -17,7 +17,7 @@
   
   export default {
 
-    props: [ 'config', 'context', 'dest', ],
+    props: [ 'config', 'dest', ],
 
     components: {
 

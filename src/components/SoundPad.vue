@@ -13,7 +13,7 @@
   
   export default {
 
-    props: [ 'config', 'context', 'dest', ],
+    props: [ 'config', 'dest', ],
 
     data() {
 
@@ -77,6 +77,16 @@
 
         source.connect( this.dest );
         source.start( 0 );
+
+      },
+
+    },
+
+    computed: {
+
+      context() {
+
+        return this.dest.context;
 
       },
 

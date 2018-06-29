@@ -3,7 +3,7 @@
   
   <div>
     
-    <page :config="app.pages[0]" :context="context" :dest="dest" />
+    <page :config="app.pages[0]" :dest="dest" />
 
   </div>
 
