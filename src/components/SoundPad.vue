@@ -1,11 +1,25 @@
 
 <template>
   
-  <div @click="play">{{ config.id }}</div>
+  <div @click="onClick" class="pad">{{ sound.label + Math.random() }}</div>
 
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  
+  .pad {
+
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-color: #333;
+    line-height: 100px;
+    text-align: center;
+
+  }
+
+</style>
 
 <script>
 
@@ -13,7 +27,7 @@
   
   export default {
 
-    props: [ 'config', 'dest', ],
+    props: [ 'config', 'dest', 'editable', ],
 
     data() {
 
@@ -76,9 +90,20 @@
         source.buffer = this.buffer;
 
         source.connect( this.dest );
-        source.start( 0 );
+        source.start(0);
 
       },
+
+      edit() {
+
+
+      },
+
+      onClick() {
+
+        return this.editable ? this.edit() : this.play();
+
+      }
 
     },
 
@@ -89,6 +114,12 @@
         return this.dest.context;
 
       },
+
+      sound() {
+
+        return this.config && this.config.id ? collection[ this.config.id ] || {} : {};
+
+      }
 
     },
 

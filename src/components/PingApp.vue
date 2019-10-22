@@ -15,10 +15,10 @@
 
   import Page from './Page.vue';
 
-  const context = window.AudioContext ? new AudioContext() : new webkitAudioContext();
+  const context = window.AudioContext ? new window.AudioContext() : new window.webkitAudioContext();
   const dest = context.destination;
 
-  context.suspend();
+  // context.suspend();
   
   export default {
 

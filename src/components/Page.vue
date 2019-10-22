@@ -3,7 +3,9 @@
   
   <div>
     
-    <sound-pad v-for="( pad, i ) in config.pads" :config="pad" :dest="dest" :key="i"/>
+    <draggable v-model="config.pads">
+      <sound-pad v-for="( pad, i ) in config.pads" :config="pad" :dest="dest" :key="i"/>
+    </draggable>
 
   </div>
 
@@ -12,6 +14,8 @@
 <style lang="scss"></style>
 
 <script>
+
+  import draggable from 'vuedraggable';
 
   import SoundPad from './SoundPad.vue';
   
@@ -22,6 +26,7 @@
     components: {
 
       SoundPad,
+      draggable,
 
     }
 
